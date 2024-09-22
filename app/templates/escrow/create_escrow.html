@@ -8,7 +8,14 @@
 <div class="container">
     <h2>创建担保交易</h2>
     <form method="POST" action="{{ url_for('escrow.create_escrow') }}">
-        {{ form.hidden_tag() }}
+        {{ form.hidden_tag() }}<!-- app/templates/escrow/create_escrow.html -->
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Create Escrow</title>
+        </head>
+        </html>
         <div class="form-group">
             <label for="buyer_id">买方ID</label>
             {{ form.buyer_id(class="form-control") }}

@@ -1,0 +1,36 @@
+<!-- app/templates/front/home.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>欢迎登录！</h2>
+
+    <!-- 增加创建担保交易的按钮 -->
+    <a href="{{ url_for('escrow.create_escrow') }}" class="btn btn-primary mb-3">创建担保交易</a>
+
+    <h3>担保交易列表</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>买方ID</th>
+            <th>卖方ID</th>
+            <th>金额</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for escrow in escrows %}
+        <tr>
+            <td>{{ escrow.buyer_id }}</td>
+            <td>{{ escrow.seller_id }}</td>
+            <td>{{ escrow.amount }}</td>
+            <td>{{ escrow.description }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

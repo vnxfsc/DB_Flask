@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}查看担保交易{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>查看担保交易</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>买方ID</th>
+            <th>卖方ID</th>
+            <th>金额</th>
+            <th>描述</th>
+            <th>状态</th>
+            <th>创建时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for escrow in escrows %}
+        <tr>
+            <td>{{ escrow.id }}</td>
+            <td>{{ escrow.buyer_id }}</td>
+            <td>{{ escrow.seller_id }}</td>
+            <td>{{ escrow.amount }}</td>
+            <td>{{ escrow.description }}</td>
+            <td>{{ escrow.status }}</td>
+            <td>{{ escrow.created_at }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
